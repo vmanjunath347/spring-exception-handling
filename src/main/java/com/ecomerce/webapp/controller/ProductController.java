@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ecomerce.webapp.exceptions.ProductNotFoundException;
 
 @Controller
 public class ProductController {
@@ -15,7 +14,7 @@ public class ProductController {
 	@ResponseBody
 	public String getProducts(@PathVariable("id") String id) {
 		if(id.contentEquals("0")) {
-			throw new ProductNotFoundException();
+			throw new NotFoundException("Not Found!");
 		}
 		return "Product is Available , very nice product";
 	}
